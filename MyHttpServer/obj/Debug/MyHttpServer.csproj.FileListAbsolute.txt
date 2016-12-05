@@ -1,0 +1,9 @@
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\bin\Debug\MyHttpServer.exe.config
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\bin\Debug\MyHttpServer.exe
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\bin\Debug\MyHttpServer.pdb
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\obj\Debug\MyHttpServer.csprojResolveAssemblyReference.cache
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\obj\Debug\MyHttpServer.exe
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\obj\Debug\MyHttpServer.pdb
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\bin\Debug\MySql.Data.dll
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\bin\Debug\MySql.Data.Entity.dll
+c:\users\rostyslav\desktop\MyHttpServer\MyHttpServer\MyHttpServer\bin\Debug\MySql.Web.dll
