@@ -18,11 +18,11 @@ namespace MyHttpServer
         {
             Listener = new TcpListener(IPAddress.Any, Port);
             Listener.Start();
-            Console.Write("sadasdasd"); //виконається 1 раз при створенні
+            //Console.Write("sadasdasd"); //виконається 1 раз при створенні
             while (true)
             {
                 ThreadPool.QueueUserWorkItem(new WaitCallback(ClientThread), Listener.AcceptTcpClient());
-                Console.WriteLine("laaaaaaaa"); //буде виводитись при переході по ссилці
+                //Console.WriteLine("laaaaaaaa"); //буде виводитись при переході по ссилці
                 //при натисканні кнопки надіслати, якраз виконується виведення повідомлення
             }
         }

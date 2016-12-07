@@ -8,6 +8,7 @@ namespace MyHttpServer
 {
     public class Man
     {
+            private int id;
             private string name;
             private string lastname;
             private int age;
@@ -51,8 +52,29 @@ namespace MyHttpServer
                 }
             }
 
-            public Man(string name, string lname, int a) { this.Name = name; Lastname = lname; Age = a; }
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
 
+            set
+            {
+                id = value;
+            }
         }
+
+        public Man(int id,string name, string lname, int a) { this.Id = id; this.Name = name; Lastname = lname; Age = a; }
+
+        public Man(string name, string lname, int a) { this.Name = name; Lastname = lname; Age = a; }
+
+
+        public override string ToString()
+        {
+            return name + " " + lastname + " " + age+"|";
+        }   
+
     }
+ }
 

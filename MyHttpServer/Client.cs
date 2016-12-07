@@ -119,16 +119,15 @@ namespace MyHttpServer
             {
                 if (RequestUri.ToString().Split('/')[1] == "createElement")
                 {
-
                     string name = Request.ToString();
                     int foundSymb = 10;
                     char splitchar = (char)foundSymb;
                     string[] findValue = name.Split(' ');
                     //Console.WriteLine(name);
-                    Console.WriteLine("-----------------------------------------");
-                    Console.WriteLine("-----------------------------------------");
-                    Console.WriteLine("-----------------------------------------");
-                    Console.WriteLine("---------------------------------My input");
+                    //Console.WriteLine("-----------------------------------------");
+                    //Console.WriteLine("-----------------------------------------");
+                    //Console.WriteLine("-----------------------------------------");
+                    //Console.WriteLine("---------------------------------My input");
                     for (int i = 0; i < findValue.Length; i++)
                     {
                         //можна скільки хочеш інпутів добавляти і нічого не міняти в коді, оскільки Response.ToString() в останніх рядках видасть
@@ -149,14 +148,32 @@ namespace MyHttpServer
                                 //Console.WriteLine(filterToGroup[j]);
                             }
                             Man man = new Man(fields[0], fields[1], int.Parse(fields[2]));
-                            Console.WriteLine(man.Name + " " + man.Lastname + " " + man.Age);
+                            //Console.WriteLine(man.Name + " " + man.Lastname + " " + man.Age);
                             menController = new MySqlConnectionController();
                             menController.add(man);
                                    
                             string head = "<!DOCTYPE HTML/>\r\n<html><head><title>My Table</title><link href = 'style1.css' type = 'text/css' rel = 'stylesheet'/> <link rel = 'stylesheet' href = 'style960.css'/></head>";
                             string body = "<body><p>Hellooooooo</p></div>";
                             List<Man> men = menController.findAll();
+
+                            CubeGenerator cube = new CubeGenerator(3, men);
+                            cube.generateFacet(0);
+                            cube.generateFacet(1);
+                            cube.generateFacet(2);
+                            cube.generateFacet(3);
+
+                            Console.Write("-------------------------------------------------------------\n");
+                            Console.Write("-------------------------------------------------------------\n");
+                            Console.Write("-------------------------------------------------------------\n");
                             
+                            SectionFormer sectionFormer = new SectionFormer(cube);
+                            int id = 56;
+                            int index = menController.findIndexOf(56);
+                            Console.WriteLine("Index: " + (index-1));
+                            sectionFormer.generateSection(index-1);
+
+                         
+
                             foreach (Man m in men)
                             {
                                 body+= "<p>___________________________________________</p>"; 
@@ -177,6 +194,7 @@ namespace MyHttpServer
                     //Console.WriteLine("Create element");
                 }
 
+                
             }
             catch (Exception ex)
             {

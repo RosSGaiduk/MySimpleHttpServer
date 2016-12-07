@@ -25,3 +25,10 @@ table {
 	width:1500px;
 	height:700px;
 }
+
+.forInput{
+	height:30px;
+	border-radius:10%;
+	background-color: white;
+	margin-top:10px;
+}

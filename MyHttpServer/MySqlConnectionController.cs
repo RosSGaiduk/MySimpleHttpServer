@@ -43,11 +43,11 @@ namespace MyHttpServer
             try
             {
                 connection = new MySqlConnection(myConnectionString);
-                Console.WriteLine("connected");
+                //Console.WriteLine("connected");
             }
             catch (MySqlException e)
             {
-                Console.Write("Error:" + e.ToString());
+                //Console.Write("Error:" + e.ToString());
             }
         }
 
@@ -59,7 +59,7 @@ namespace MyHttpServer
 
         public void add(Man man)
         {
-            Console.WriteLine("adding");
+            //Console.WriteLine("adding");
             command = connection.CreateCommand();
             command.CommandText = "INSERT INTO man (name,lastname,age) " +
               "VALUES(?nam,?lnam,?ag)";
@@ -72,6 +72,17 @@ namespace MyHttpServer
         }
 
 
+        public int findIndexOf(int id)
+        {
+            command = connection.CreateCommand();
+            command.CommandText = "select(count(id)) from man where id <= ?id";
+            command.Prepare();
+            command.Parameters.AddWithValue("?id", id);
+            reader = command.ExecuteReader();
+            reader.Read();
+
+            return int.Parse(reader[0].ToString());
+        }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         public Man findOne(int id)
         {
@@ -108,7 +119,7 @@ namespace MyHttpServer
             while (reader.Read())
             {
 
-                men.Add(new Man(reader[1].ToString(), reader[2].ToString(), int.Parse(reader[3].ToString())));
+                men.Add(new Man(int.Parse(reader[0].ToString()),reader[1].ToString(), reader[2].ToString(), int.Parse(reader[3].ToString())));
             }
             reader.Close();
             return men;
